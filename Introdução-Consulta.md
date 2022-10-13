@@ -1,22 +1,23 @@
-#Exemplo de consulta do GraphQL
-
+# Exemplo de consulta do GraphQL
 A melhor maneira de entender o GraphQL é vendo alguns exemplos de consultas e respostas. Vamos dar uma olhada em três exemplos adaptados do site do projeto GraphQL, graphql.org.
 
-O primeiro exemplo mostra como um cliente pode construir uma consulta do GraphQL, solicitando à API que retorne campos específicos no formato determinado.
+# O primeiro exemplo mostra como um cliente pode construir uma consulta do GraphQL, solicitando à API que retorne campos específicos no formato determinado.
 
 {
   me {
     name
   }
 }
-Uma API GraphQL retornaria um resultado como o abaixo no formato JSON:
+
+# Uma API GraphQL retornaria um resultado como o abaixo no formato JSON:
 
 {
   "me": {
     "name": "Dorothy"
   }
 }
-Um cliente também pode transmitir argumentos como parte da consulta do GraphQL, como neste exemplo:
+
+# Um cliente também pode transmitir argumentos como parte da consulta do GraphQL, como neste exemplo:
 
 {
   human(id: "1000") {
@@ -24,7 +25,8 @@ Um cliente também pode transmitir argumentos como parte da consulta do GraphQL,
     location
   }
 }
-O resultado:
+
+# O resultado:
 
 {
   "data": {
@@ -34,11 +36,12 @@ O resultado:
     }
   }
 }
+
 A partir daí, as coisas ficam mais interessantes. Com o GraphQL, os usuários podem definir fragmentos reutilizáveis e atribuir variáveis.
 
 Imagine que você precisa solicitar uma lista de IDs e depois uma série de registros de cada ID. Com o GraphQL, é possível elaborar uma consulta que extraia todos os dados que você quer em uma única chamada de API. 
 
-Portanto, esta consulta:
+# Portanto, esta consulta:
 
 query HeroComparison($first: Int = 3) {
   leftComparison: hero(location: KANSAS) {
@@ -61,7 +64,7 @@ fragment comparisonFields on Character {
   }
 }
 
-Pode produzir o seguinte resultado:
+# Pode produzir o seguinte resultado:
 
 {
   "data": {
